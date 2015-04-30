@@ -1,2 +1,6 @@
 <h1> #PBandJ2015 </h1>
 <p> wedding website </p>
+
+<% @instagram.each do |i| %>
+  <%= image_tag i.images.standard_resolution_url %>
+<% end %>
