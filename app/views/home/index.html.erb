@@ -1,18 +1,20 @@
-<h1> #PBandJ2015 </h1>
-<p> wedding website </p>
+<div class="main_splash" >
+  <div class="page_title" >
+    <h1><em> #PBandJ2015 </em></h1>
+  </div>
 
-<% @results.each do |instagram| %>
+  <div class="jumbotron">
+  </div>
   
-    <% instagram.caption ? caption = instagram.caption.text : 0 %>
-    <% if !caption.include?("@pbarron12") %>
-      <a href="<%= instagram.link %>" data-largesrc="<%= instagram.images.standard_resolution.url %>" data-title="@<%= instagram.user.username %>" data-description="<%= caption %>">
-        <%= image_tag instagram.images.low_resolution.url %>
-      </a>
+  <div class="reel">
+    <% @results.each do |instagram| %>
+      <% caption = instagram.caption.text if instagram.caption %>
+      <% if !caption.include?("@pbarron12") %>
+        <!-- <a href="<%= instagram.link %>" data-largesrc="<%= instagram.images.standard_resolution.url %>" data-title="@<%= instagram.user.username %>" data-description="<%= caption %>"> -->
+        <div style="background-image: url('<%= instagram.images.standard_resolution.url %>')" class="instagram_image">
+        </div>
+        <!-- </a> -->
+      <% end %>
     <% end %>
-  
-
-<% end %>
-
-
-
-<p id="centerButton"><button id="loadmore" class="btn btn-lg btn-default" data-next-id="<%= @results.pagination.next_max_tag_id %>">Load more</button></p>
+  </div>
+</div>
