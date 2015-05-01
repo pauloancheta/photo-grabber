@@ -1,4 +1,18 @@
 <h1> #PBandJ2015 </h1>
 <p> wedding website </p>
 
-<a href="/oauth/connect"> Connect with Instagram </a>
+<% @results.each do |instagram| %>
+  
+    <% instagram.caption ? caption = instagram.caption.text : 0 %>
+    <% if !caption.include?("@pbarron12") %>
+      <a href="<%= instagram.link %>" data-largesrc="<%= instagram.images.standard_resolution.url %>" data-title="@<%= instagram.user.username %>" data-description="<%= caption %>">
+        <%= image_tag instagram.images.low_resolution.url %>
+      </a>
+    <% end %>
+  
+
+<% end %>
+
+
+
+<p id="centerButton"><button id="loadmore" class="btn btn-lg btn-default" data-next-id="<%= @results.pagination.next_max_tag_id %>">Load more</button></p>
