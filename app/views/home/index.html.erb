@@ -1,20 +1,6 @@
-<div class="main_splash" >
-  <div class="page_title" >
-    <h1><em> #PBandJ2015 </em></h1>
-  </div>
+<div id="instafeed">
+</div>
 
-  <div class="jumbotron">
-  </div>
+<div id="lol">
   
-  <div class="reel">
-    <% @results.each do |instagram| %>
-      <% caption = instagram.caption.text if instagram.caption %>
-      <% if !caption.include?("@pbarron12") %>
-        <!-- <a href="<%= instagram.link %>" data-largesrc="<%= instagram.images.standard_resolution.url %>" data-title="@<%= instagram.user.username %>" data-description="<%= caption %>"> -->
-        <div style="background-image: url('<%= instagram.images.standard_resolution.url %>')" class="instagram_image">
-        </div>
-        <!-- </a> -->
-      <% end %>
-    <% end %>
-  </div>
 </div>
