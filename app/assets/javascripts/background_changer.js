@@ -4,15 +4,19 @@ $(document).ready(function(){
       get: 'tagged',
       tagName: 'foodporn',
       clientId: 'f9c78cfd275943e1aa93165e83ee13e3',
-      limit: 1,
-      success: function(image){
-        url = image.data[0].images.low_resolution.url;
+      limit: 60,
+      success: function(images){
+
+        images.data.forEach(function(image){
+          url = image.images.low_resolution.url;
         
-        //only post unique images
-        if( urlArray.indexOf(url) === -1 ){
-          urlArray.push(url);
-          $('#lol').prepend('<img src="'+ url + '"/>')
-        }
+          //only post unique images
+          if( urlArray.indexOf(url) === -1 ){
+            urlArray.push(url);
+            $('#lol').prepend('<img src="'+ url + '"/>')
+          }  
+        });
+        
       },
       mock: function(){
         return true
@@ -21,7 +25,8 @@ $(document).ready(function(){
 
   setInterval(function(){
     feed.run()
-  }, 200);
+  }, 10000);
+ 
   
     
 });
