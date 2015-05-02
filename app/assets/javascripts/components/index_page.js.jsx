@@ -7,11 +7,10 @@ var IndexPage = React.createClass({
     var self = this;
     var feed = new Instafeed({
         get: 'tagged',
-        tagName: 'foodporn',
+        tagName: 'mustang',
         clientId: 'f9c78cfd275943e1aa93165e83ee13e3',
-        limit: 30,
+        limit: 8,
         success: function(images){
-          console.log(images.data)
           url = images.data;
           self.setState({urlArray: url});
         },
@@ -20,7 +19,10 @@ var IndexPage = React.createClass({
         }
     });
 
-    feed.run();
+    setInterval(function() {
+      feed.run();  
+    }, 5000)
+    
   },
 
 
@@ -32,11 +34,11 @@ var IndexPage = React.createClass({
 
     return(
       <div>
-        <div className="search_bar">
+        <div className="heading">
           <h1>Hello World</h1>
         </div>
 
-        <div className="footer">
+        <div className="image_feed">
           {urlArrayElements}
         </div>
       </div>
