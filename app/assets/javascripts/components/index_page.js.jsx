@@ -1,46 +1,26 @@
 var IndexPage = React.createClass({
   getInitialState: function() {
-    return{urlArray: []}
+    return {tag: "hello"}
   },
 
-  componentWillMount: function(){
-    var self = this;
-    var feed = new Instafeed({
-        get: 'tagged',
-        tagName: 'mustang',
-        clientId: 'f9c78cfd275943e1aa93165e83ee13e3',
-        limit: 8,
-        success: function(images){
-          url = images.data;
-          self.setState({urlArray: url});
-        },
-        mock: function(){
-          return true
-        }
-    });
-
-    setInterval(function() {
-      feed.run();  
-    }, 5000)
-    
+  onSubmitHandler: function(event){
+    event.preventDefault();
+    var tag = React.findDOMNode(this.refs.newTag).value;
+    this.setState({tag: tag})
   },
-
 
   render: function() {
-    urlArrayElements = [];
-    this.state.urlArray.forEach(function(url) {
-      urlArrayElements.push(<img src={url.images.low_resolution.url} /> )
-    });
-
+    console.log("render function is running")
     return(
       <div>
         <div className="heading">
-          <h1>Hello World</h1>
+          <form onSubmit={this.onSubmitHandler} >
+            <input type="text" ref="newTag" ></input>
+            <input type="submit"></input>
+          </form>
         </div>
 
-        <div className="image_feed">
-          {urlArrayElements}
-        </div>
+        <MainFeed tag={this.state.tag} />
       </div>
     );
   }
