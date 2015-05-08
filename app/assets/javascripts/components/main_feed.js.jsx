@@ -27,7 +27,7 @@ var MainFeed = React.createClass({
   
     setInterval(function() {
       feed.run();
-    }, 5000)
+    }, 10000)
 
     urlArrayElements = [];
     this.state.urlArray.forEach(function(url) {
