@@ -26,7 +26,7 @@ var MainFeed = React.createClass({
   },
 
   componentDidMount: function() {
-    this.interval = setInterval(this.feed, 5000);
+    this.interval = setInterval(this.feed, 10000);
   },
 
   componentWillUnmount: function(){
@@ -38,14 +38,18 @@ var MainFeed = React.createClass({
   },
 
   render: function(){
-    urlArrayElements = [];
-    this.state.urlArray.forEach(function(url) {
-      urlArrayElements.push(<img src={url.images.low_resolution.url} /> )
-    });
+    landingPage = <LandingPage />;
+    urlArrayElements = <Images urlArray={this.state.urlArray} />;
+    // urlArrayElements = [];
+    // this.state.urlArray.forEach(function(url) {
+    //   // urlArrayElements.unshift(<Images text={url.caption.text} image={url.images.low_resolution.url} />)
+    //   urlArrayElements.push(<img src={url.images.low_resolution.url} /> )
+    // });
+    
 
     return(
       <div>
-        {urlArrayElements}
+        {this.state.urlArray.length > 0 ? urlArrayElements : landingPage}
       </div>
     );
   }
