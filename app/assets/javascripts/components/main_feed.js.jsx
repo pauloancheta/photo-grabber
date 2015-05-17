@@ -40,16 +40,10 @@ var MainFeed = React.createClass({
   render: function(){
     landingPage = <LandingPage />;
     urlArrayElements = <Images urlArray={this.state.urlArray} />;
-    // urlArrayElements = [];
-    // this.state.urlArray.forEach(function(url) {
-    //   // urlArrayElements.unshift(<Images text={url.caption.text} image={url.images.low_resolution.url} />)
-    //   urlArrayElements.push(<img src={url.images.low_resolution.url} /> )
-    // });
     
-
     return(
       <div>
-        {this.state.urlArray.length > 0 ? urlArrayElements : landingPage}
+        {this.state.tag.length > 0 ? urlArrayElements : landingPage}
       </div>
     );
   }
