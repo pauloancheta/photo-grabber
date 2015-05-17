@@ -3,7 +3,7 @@ var MainFeed = React.createClass({
     return {urlArray: [], tag: this.props.tag}
   },
 
-  tick: function(){
+  feed: function(){
     var self = this
     var feed = new Instafeed({
       get: 'tagged',
@@ -19,11 +19,14 @@ var MainFeed = React.createClass({
         return true
       }
     });
-    feed.run();
+
+    if(this.state.tag !== ""){
+      feed.run();
+    }
   },
 
   componentDidMount: function() {
-    // this.interval = setInterval(this.tick, 5000);
+    this.interval = setInterval(this.feed, 5000);
   },
 
   componentWillUnmount: function(){
