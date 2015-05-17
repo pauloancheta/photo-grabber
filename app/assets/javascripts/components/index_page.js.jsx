@@ -12,12 +12,16 @@ var IndexPage = React.createClass({
   render: function() {
     return(
       <div>
-        <div className="heading">
-          <form onSubmit={this.onSubmitHandler} >
-            <input type="text" ref="newTag" ></input>
-            <input type="submit"></input>
-          </form>
-        </div>
+        <header>
+          <h1>PhotoGrabber</h1>
+
+          <div className="search_bar">
+            <form onSubmit={this.onSubmitHandler} >
+              <input type="text" ref="newTag" ></input>
+              <input type="submit" className="search_bar__button"></input>
+            </form>
+          </div>
+        </header>
 
         <MainFeed tag={this.state.tag} />
       </div>

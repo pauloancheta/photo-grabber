@@ -23,7 +23,7 @@ var MainFeed = React.createClass({
   },
 
   componentDidMount: function() {
-    this.interval = setInterval(this.tick, 5000);
+    // this.interval = setInterval(this.tick, 5000);
   },
 
   componentWillUnmount: function(){

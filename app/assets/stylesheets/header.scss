@@ -1,0 +1,39 @@
+header {
+  background-color: #323131;
+  height: 60px;
+  padding-left: 15px;
+  padding-top: 10px;
+  position: relative;
+
+  h1 {
+    margin: 0;
+    font-family: 'Damion', cursive;
+    color: white;
+  }
+
+  .search_bar {
+    position: absolute;
+    display: inline-block;
+    text-align: right;
+    width: auto;
+    top: 15px;
+    right: 15px;
+
+    input {
+      border: 0;
+      height: 30px;
+      margin-left: 10px;
+
+      input[type="text"] {
+        width: 300px;
+      }
+    }
+    input.search_bar__button {
+      border: 0;
+      background: #636363;
+      color: white;
+    }
+  }
+
+
+}
