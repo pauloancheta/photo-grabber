@@ -1,34 +1,40 @@
 var MainFeed = React.createClass({
   getInitialState: function(){
-    return {urlArray: [], tag: ""}
+    return {urlArray: [], tag: this.props.tag}
   },
 
-  componentWillReceiveProps: function(nextProps) {
-    console.log(nextProps.tag);
-    this.setState({tag: nextProps.tag})
-  },
-
-  render: function(){
+  tick: function(){
     var self = this
-  
     var feed = new Instafeed({
       get: 'tagged',
-      tagName: self.state.tag,
+      tagName: this.state.tag,
       clientId: 'f9c78cfd275943e1aa93165e83ee13e3',
       limit: 8,
       success: function(images){
         url = images.data;
         self.setState({urlArray: url});
+        console.log(self.state.tag);
       },
       mock: function(){
         return true
       }
     });
-  
-    setInterval(function() {
-      feed.run();
-    }, 10000)
+    feed.run();
+  },
 
+  componentDidMount: function() {
+    this.interval = setInterval(this.tick, 5000);
+  },
+
+  componentWillUnmount: function(){
+    clearInterval(this.interval);
+  },
+
+  componentWillReceiveProps: function(nextProps) {
+    this.setState({tag: nextProps.tag})
+  },
+
+  render: function(){
     urlArrayElements = [];
     this.state.urlArray.forEach(function(url) {
       urlArrayElements.push(<img src={url.images.low_resolution.url} /> )

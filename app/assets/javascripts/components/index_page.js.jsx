@@ -1,6 +1,6 @@
 var IndexPage = React.createClass({
   getInitialState: function() {
-    return {tag: "hello"}
+    return {tag: ""}
   },
 
   onSubmitHandler: function(event){
@@ -10,7 +10,6 @@ var IndexPage = React.createClass({
   },
 
   render: function() {
-    console.log("render function is running")
     return(
       <div>
         <div className="heading">
