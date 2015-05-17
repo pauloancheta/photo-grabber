@@ -18,7 +18,7 @@ var Images = React.createClass({
     
     return(
       <div className="feed">
-        {urlArrayElements}
+        {urlArrayElements.length > 0 ? urlArrayElements : <div className="loading"></div>}
       </div>
     )
   }
