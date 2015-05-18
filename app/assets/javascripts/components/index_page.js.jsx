@@ -9,12 +9,13 @@ var IndexPage = React.createClass({
     var tag = React.findDOMNode(this.refs.newTag).value;
     if(tag[0] === '#'){
       tag = tag.substring(1, tag.length);
-      console.log(tag);
     }
     this.setState({tag: tag})
   },
 
   render: function() {
+    var feed = <MainFeed tag={this.state.tag} />;
+    var landing = <LandingPage />
     return(
       <div>
         <header>
@@ -27,7 +28,7 @@ var IndexPage = React.createClass({
           </div>
         </header>
 
-        <MainFeed tag={this.state.tag} />
+        {this.state.tag.length > 0 ? feed : landing }
       </div>
     );
   }

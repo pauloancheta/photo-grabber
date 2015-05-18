@@ -38,11 +38,9 @@ var MainFeed = React.createClass({
   },
 
   render: function(){
-    landingPage = <LandingPage />;
-    urlArrayElements = <Images urlArray={this.state.urlArray} />;
     return(
       <div>
-        {this.state.tag.length > 0 ? urlArrayElements : landingPage}
+        <Images urlArray={this.state.urlArray} />
       </div>
     );
   }
