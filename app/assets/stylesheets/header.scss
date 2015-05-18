@@ -20,17 +20,28 @@ header {
     top: 15px;
     right: 15px;
 
-    input {
-      border: 0;
+
+    input[type="text"] {
+      height: 30px;
+      width: 55px;
+      background: none;
+      border: none;
+      border-bottom: 1px solid #CCC;
+      color: white;
+      outline: none;
+      transition: 1s;
+    }
+
+    input[type="text"]:focus {
+      border-bottom: 1px solid orange;
+      width: 300px;
+      transition: 1s;
+    }
+
+    input.search_bar__button {
       height: 30px;
       margin-left: 10px;
-
-      input[type="text"] {
-        width: 300px;
-      }
-    }
-    input.search_bar__button {
-      border: 0;
+      border: 1px solid #999;
       background: #636363;
       color: white;
     }

@@ -1,3 +1,4 @@
+// <input type="submit" className="search_bar__button"></input>
 var IndexPage = React.createClass({
   getInitialState: function() {
     return {tag: ""}
@@ -6,6 +7,10 @@ var IndexPage = React.createClass({
   onSubmitHandler: function(event){
     event.preventDefault();
     var tag = React.findDOMNode(this.refs.newTag).value;
+    if(tag[0] === '#'){
+      tag = tag.substring(1, tag.length);
+      console.log(tag);
+    }
     this.setState({tag: tag})
   },
 
@@ -17,8 +22,7 @@ var IndexPage = React.createClass({
 
           <div className="search_bar">
             <form onSubmit={this.onSubmitHandler} >
-              <input type="text" ref="newTag" ></input>
-              <input type="submit" className="search_bar__button"></input>
+              <input type="text" ref="newTag" placeholder="Search"></input>
             </form>
           </div>
         </header>
