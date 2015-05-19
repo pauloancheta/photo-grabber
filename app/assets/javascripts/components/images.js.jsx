@@ -13,7 +13,7 @@ var Images = React.createClass({
       <div className={this.state.resolution}>
         <div className="image_container__set">
           <img src={this.state.url} className={this.state.resolution} />
-          {caption}
+          {this.state.resolution === "standard_resolution" ? caption : ""}
         </div>
       </div>
     )

@@ -4,13 +4,24 @@ var MainFeed = React.createClass({
   },
 
   feed: function(){
+    var limit;
+    if(this.state.resolution === "standard_resolution"){
+      limit = 1;
+    }
+    else if(this.state.resolution === "low_resolution"){
+      limit = 8;
+    }
+    else{
+      limit = 32;
+    }
+
     var self = this
     var feed = new Instafeed({
       get: 'tagged',
       tagName: this.state.tag,
       clientId: 'f9c78cfd275943e1aa93165e83ee13e3',
       sortBy: this.state.sort,
-      limit: 8,
+      limit: limit,
       success: function(images){
         url = images.data;
         self.setState({urlArray: url});
