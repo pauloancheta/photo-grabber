@@ -22,12 +22,15 @@ header {
 
 
     input[type="text"] {
+      position: absolute;
+      font-size: 30px;
+      bottom: 0;
+      right: 300px;
       height: 35px;
       width: 200px;
       background: none;
       border: none;
       border-bottom: 1px solid #CCC;
-      font-size: 30px;
       color: white;
       outline: none;
       text-align: center;
@@ -39,19 +42,21 @@ header {
       width: 300px;
       transition: 1s;
     }
+
+    .dropdown_select {
+
+      border: 1px solid orange;
+      padding-left: 5px;
+      padding-right: 5px;
+      margin-left: 10px;
+      color: white;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      height: 35px;
+      background-color: #323131;
+      outline: none;
+    }
   }
 
-  .dropdown_select {
-    border: 1px solid orange;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-left: 10px;
-    color: white;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    height: 35px;
-    background-color: #323131;
-    outline: none;
-  }
 }
