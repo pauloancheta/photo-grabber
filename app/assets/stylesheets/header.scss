@@ -15,7 +15,6 @@ header {
   .search_bar {
     position: absolute;
     display: inline-block;
-    text-align: right;
     width: auto;
     top: 15px;
     right: 15px;
@@ -23,13 +22,14 @@ header {
 
     input[type="text"] {
       height: 35px;
-      width: 100px;
+      width: 110px;
       background: none;
       border: none;
       border-bottom: 1px solid #CCC;
       font-size: 30px;
       color: white;
       outline: none;
+      text-align: center;
       transition: 1s;
     }
 
@@ -48,5 +48,11 @@ header {
     }
   }
 
+}
+.search_options {
+  display: none;
+  text-align: center;
+  height: 120px;
 
+  
 }
