@@ -8,6 +8,7 @@ var IndexPage = React.createClass({
     var tag = React.findDOMNode(this.refs.newTag).value;
     var resolution = React.findDOMNode(this.refs.newRes).value;
     var sort = React.findDOMNode(this.refs.newSort).value;
+    
     if(tag[0] === '#'){
       tag = tag.substring(1, tag.length);
     }
@@ -20,6 +21,7 @@ var IndexPage = React.createClass({
     var sortOption = ['most-recent', 'least-recent', 'most-liked', 'least-liked', 'most-commented', 'least-commented', 'random']
     var feed = <MainFeed tag={this.state.tag} resolution={this.state.resolution} sort={this.state.sort} />;
     var landing = <LandingPage />
+
     return(
       <div>
         <header>
@@ -30,8 +32,6 @@ var IndexPage = React.createClass({
               <Dropdown options={resOption} ref="newRes" />
               <Dropdown options={sortOption} ref="newSort" />
             </form>
-
-
           </div>
         </header>
 

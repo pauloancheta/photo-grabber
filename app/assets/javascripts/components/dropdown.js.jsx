@@ -6,11 +6,15 @@ var Dropdown = React.createClass({
   render: function(){
     var dropdownOptions = []
     this.state.options.forEach(function(dropdownOption, i){
-      dropdownOptions.push(<option value={dropdownOption} key={i} >{dropdownOption}</option>);
+      dropdownOptions.push(
+        <option value={dropdownOption} key={i} >
+          {dropdownOption.replace('_', ' ').replace('-',' ')}
+        </option>
+      );
     });
 
     return(
-      <select className="dropdown">
+      <select className="dropdown_select">
         {dropdownOptions}
       </select>
     )
