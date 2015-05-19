@@ -1,24 +1,20 @@
 var Images = React.createClass({
   getInitialState: function(){
-    // url.caption.text = the text
-    // url.images.low_resolution.url = the image
-    return {array: this.props.urlArray, resolution: ""}
+    return {url: this.props.url, caption: this.props.caption, resolution: this.props.resolution}
   },
 
   componentWillReceiveProps: function(nextProps){
-    this.setState({array: nextProps.urlArray, resolution: nextProps.resolution})
+    this.setState({url: nextProps.url, caption: nextProps.caption, resolution: nextProps.resolution})
   },
 
   render: function(){
-    var urlArrayElements = [];
-    var test = this.state.resolution;
-    this.state.array.forEach(function(url, i) {
-      urlArrayElements.push(<img src={url.images[test]["url"]} key={i} /> )
-    });
-    
+    var caption = <div className="caption_container">{this.state.caption}</div>;
     return(
-      <div>
-        {urlArrayElements.length > 0 ? urlArrayElements : <div className="loading"></div>}
+      <div className={this.state.resolution}>
+        <div className="image_container__set">
+          <img src={this.state.url} className={this.state.resolution} />
+          {caption}
+        </div>
       </div>
     )
   }

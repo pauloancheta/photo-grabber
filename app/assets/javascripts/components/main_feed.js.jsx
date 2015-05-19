@@ -38,9 +38,18 @@ var MainFeed = React.createClass({
   },
 
   render: function(){
+    var urlArrayElements = [];
+    var resolution = this.state.resolution;
+
+    this.state.urlArray.forEach(function(url, i) {
+      urlArrayElements.push(
+        <Images url={url.images[resolution]["url"]} caption={url.caption.text} key={i} resolution={resolution} /> 
+      )
+    });
+
     return(
       <div>
-        <Images urlArray={this.state.urlArray} resolution={this.state.resolution}/>
+        {urlArrayElements.length > 0 ? urlArrayElements : <div className="loading"></div>}
       </div>
     );
   }
