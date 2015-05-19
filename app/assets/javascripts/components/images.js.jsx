@@ -8,7 +8,7 @@ var Images = React.createClass({
   },
 
   render: function(){
-    var caption = <div className="caption_container">{this.state.caption}</div>;
+    var caption = <div className="caption_container"><div className="caption">{this.state.caption}</div></div>;
     return(
       <div className={this.state.resolution}>
         <div className="image_container__set">

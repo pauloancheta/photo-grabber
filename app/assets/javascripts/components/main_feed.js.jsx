@@ -4,15 +4,14 @@ var MainFeed = React.createClass({
   },
 
   feed: function(){
-    var limit;
     if(this.state.resolution === "standard_resolution"){
-      limit = 1;
+      var limit = 1;
     }
     else if(this.state.resolution === "low_resolution"){
-      limit = 8;
+      var limit = 8;
     }
     else{
-      limit = 32;
+      var limit = 32;
     }
 
     var self = this
@@ -45,7 +44,7 @@ var MainFeed = React.createClass({
   },
 
   componentWillReceiveProps: function(nextProps) {
-    this.setState({tag: nextProps.tag, resolution: nextProps.resolution, sort: nextProps.sort})
+    this.setState({tag: nextProps.tag, resolution: nextProps.resolution, sort: nextProps.sort, resolution: nextProps.resolution})
   },
 
   render: function(){

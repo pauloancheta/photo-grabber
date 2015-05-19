@@ -9,17 +9,15 @@
 .standard_resolution {
   margin-left: 5px;
   position: relative;
-  img {
-    display: inline-block;
-  }
+}
+
+.image_container{
+  display: inline-block;
 }
 
 .caption_container {
   display: inline-block;
-  position: absolute;
-  top: 200px;
   font-size: 30px;
-  max-width: 40%;
   margin-left: 20px;
 
   white-space: pre-wrap;      /* CSS3 */   
@@ -28,4 +26,9 @@
   white-space: -o-pre-wrap;   /* Opera 7 */    
   word-wrap: break-word;      /* IE */
 
+  .caption {
+    position: absolute;
+    width: 40%;
+    bottom: 50px;
+  }
 }
