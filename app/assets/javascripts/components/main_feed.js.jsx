@@ -53,9 +53,11 @@ var MainFeed = React.createClass({
     var resolution = this.state.resolution;
 
     this.state.urlArray.forEach(function(url, i) {
-      urlArrayElements.push(
-        <Images url={url.images[resolution]["url"]} caption={url.caption.text} key={i} resolution={resolution} /> 
-      )
+      if(!(url.caption.text.indexOf('@pbarron12') > -1 || url.caption.text.indexOf('#beyondwonderland2015') > -1)){
+        urlArrayElements.push(
+          <Images url={url.images[resolution]["url"]} caption={url.caption.text} key={i} resolution={resolution} /> 
+        )
+      }
     });
 
     return(
