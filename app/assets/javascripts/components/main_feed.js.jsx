@@ -4,14 +4,10 @@ var MainFeed = React.createClass({
   },
 
   feed: function(){
-    if(this.state.resolution === "standard_resolution"){
-      var limit = 1;
-    }
-    else if(this.state.resolution === "low_resolution"){
-      var limit = 8;
-    }
-    else{
-      var limit = 32;
+    switch(this.state.resolution){
+      case "standard_resolution": var limit = 1;
+      case "low_resolution": var limit = 8;
+      default: var limit = 32;
     }
 
     var self = this
@@ -30,13 +26,11 @@ var MainFeed = React.createClass({
       }
     });
 
-    if(this.state.tag !== ""){
-      feed.run();
-    }
+    feed.run();
   },
 
   componentDidMount: function() {
-    this.interval = setInterval(this.feed, 10000);
+    this.interval = setInterval(this.feed, 5000);
   },
 
   componentWillUnmount: function(){
