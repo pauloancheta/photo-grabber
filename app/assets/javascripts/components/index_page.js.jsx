@@ -15,7 +15,7 @@ var IndexPage = React.createClass({
     
     this.setState({tag: tag, resolution: resolution, sort: sort})
   },
-
+  
   render: function() {
     var resOption = ['low_resolution', 'thumbnail', 'standard_resolution'];
     var sortOption = ['most-recent', 'least-recent', 'most-liked', 'least-liked', 'most-commented', 'least-commented', 'random']
@@ -31,6 +31,7 @@ var IndexPage = React.createClass({
               <input type="text" ref="newTag" placeholder="#search"></input>
               <Dropdown options={resOption} ref="newRes" />
               <Dropdown options={sortOption} ref="newSort" />
+              <input type="submit" className="header_button"></input>
             </form>
           </div>
         </header>

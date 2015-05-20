@@ -14,7 +14,7 @@ var Dropdown = React.createClass({
     });
 
     return(
-      <select className="dropdown_select">
+      <select className="dropdown_select header_button">
         {dropdownOptions}
       </select>
     )
