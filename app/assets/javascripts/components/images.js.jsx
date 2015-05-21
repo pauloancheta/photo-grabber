@@ -11,10 +11,8 @@ var Images = React.createClass({
     var caption = <div className="caption_container"><div className="caption">{this.state.caption}</div></div>;
     return(
       <div className={this.state.resolution}>
-        <div className="image_container__set">
-          <img src={this.state.url} className={this.state.resolution} />
-          {this.state.resolution === "standard_resolution" ? caption : ""}
-        </div>
+        <img src={this.state.url} />
+        {this.state.resolution === "standard_resolution" ? caption : ""}
       </div>
     )
   }

@@ -4,11 +4,15 @@ var MainFeed = React.createClass({
   },
 
   feed: function(){
-    switch(this.state.resolution){
-      case "standard_resolution": var limit = 1;
-      case "low_resolution": var limit = 8;
-      default: var limit = 32;
-    }
+    // switch(this.state.resolution){
+    //   case "standard_resolution": var limit = 1;
+    //   case "low_resolution": var limit = 8;
+    //   default: var limit = 32;
+    // }
+    var resolution = this.state.resolution;
+    if(resolution === "low_resolution"){var limit = 8}
+    else if(resolution === "standard_resolution"){ var limit = 1 }
+    else{var limit = 32}
 
     var self = this
     var feed = new Instafeed({
@@ -54,7 +58,7 @@ var MainFeed = React.createClass({
     });
 
     return(
-      <div>
+      <div className="image_container">
         {urlArrayElements.length > 0 ? urlArrayElements : <div className="loading"></div>}
       </div>
     );
