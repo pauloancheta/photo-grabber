@@ -6,4 +6,4 @@ The app searches the latest instagram photos by default using instafeed.js. The 
 
 The app uses Ruby on Rails as the back-end (which I plan to develop by adding photos to the database of the user), React.js as the front-end.
 
-![alt tag](/app/assets/images/photo-grabber-demo.gif)
+![alt tag](https://github.com/pauloancheta/photo-grabber/blob/master/photo-grabber-demo.gif)
