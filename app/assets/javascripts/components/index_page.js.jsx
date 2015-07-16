@@ -35,8 +35,7 @@ var IndexPage = React.createClass({
             </form>
           </div>
         </header>
-
-        {this.state.tag.length > 0 ? feed : landing }
+        {this.state.tag.length > 0 ? feed : landing}
       </div>
     );
   }
