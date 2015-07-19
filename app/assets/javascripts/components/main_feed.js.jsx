@@ -50,6 +50,7 @@ var MainFeed = React.createClass({
     var resolution = this.state.resolution;
 
     this.state.urlArray.forEach(function(url, i) {
+      console.log(url);
       if(!(url.caption.text.indexOf('@pbarron12') > -1 ||
           url.caption.text.indexOf('#beyondwonderland2015') > -1 ||
           url.caption.text.indexOf('Jason') > -1 ||
@@ -59,7 +60,10 @@ var MainFeed = React.createClass({
           url.caption.text.indexOf('#jeepney') > -1 || 
           url.user.full_name.indexOf('Bernadette Young') > -1 || 
           url.caption.text.indexOf('#beach') > -1 || 
-          url.user.full_name.indexOf('Sonia Bea Wee-Lozada') > -1 )){
+          url.user.full_name.indexOf('Sonia Bea Wee-Lozada') > -1 ||
+          url.user.username.indexOf('dannasolomon') > -1 ||
+          url.user.full_name.indexOf('Mark Leslie Rubio') > -1))
+      {
 
         urlArrayElements.push(
           <Images url={url.images[resolution]["url"]} caption={url.caption.text} key={i} resolution={resolution} /> 
